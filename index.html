@@ -10,19 +10,26 @@
     <script defer src="./js/script.js"></script>
   </head>
   <body>
-    <h1 class="fancy">Tic Tac Toe</h1>
-    <section class="board">
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
+    <section class="info">
+      <h1 class="fancy">Tic Tac Toe</h1>
+      <h2>Click the squares to play.</h2>
+      <h3>Current Player:</h3>
+      <div id="current-player" class="X"></div>
     </section>
-    <h1 id="results">Click the squares!</h1>
-    <button id="reset" type="button">Reset</button>
+    <section class="game">
+      <div class="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <h1 id="results"></h1>
+      <button id="reset" type="button">Reset</button>
+    </section>
   </body>
 </html>

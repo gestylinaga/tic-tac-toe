@@ -24,7 +24,15 @@ function placeMarker(index: number): void {
     player *= -1;     // Switch active player
     drawMarkers();    // Update board display
     checkGameState(); // Check for win state
+    updateCurrent();
   }
+}
+
+function updateCurrent(): void {
+  const current: any = document.getElementById("current-player");
+
+  current.classList.toggle("X");
+  current.classList.toggle("O");
 }
 
 function drawMarkers(): void {
@@ -105,5 +113,6 @@ button.addEventListener("click", () => {
   cells.forEach(cell => {
     cell.classList.remove("X", "O");
   });
-  results.innerText = "Click the squares!";
+  results.innerText = "";
+  updateCurrent();
 })

@@ -3,6 +3,7 @@
 const cells = document.querySelectorAll(".cell");
 const results = document.getElementById("results");
 const button = document.querySelector("button");
+// Initial game state
 let player = 1; // Player1 = 1, Player2 = -1
 let gameOver = false;
 let boardState = [
@@ -20,7 +21,13 @@ function placeMarker(index) {
         player *= -1; // Switch active player
         drawMarkers(); // Update board display
         checkGameState(); // Check for win state
+        updateCurrent();
     }
+}
+function updateCurrent() {
+    const current = document.getElementById("current-player");
+    current.classList.toggle("X");
+    current.classList.toggle("O");
 }
 function drawMarkers() {
     // Iterate over rows
@@ -57,7 +64,11 @@ function checkGameState() {
     else if (diagonalSum1 === -3 || diagonalSum2 === -3) {
         endGame(2);
     }
-    // Check for tie game
+    /* Check for tie game
+       * `indexOf[0]` returns `-1` if `0` is NOT present in the list
+       * this `if` statement checks if all cells have been marked already
+         * and only runs when the above checks have already failed
+    */
     if (boardState[0].indexOf(0) === -1 &&
         boardState[1].indexOf(0) === -1 &&
         boardState[2].indexOf(0) === -1) {
@@ -92,5 +103,6 @@ button.addEventListener("click", () => {
     cells.forEach(cell => {
         cell.classList.remove("X", "O");
     });
-    results.innerText = "Click the squares!";
+    results.innerText = "";
+    updateCurrent();
 });
